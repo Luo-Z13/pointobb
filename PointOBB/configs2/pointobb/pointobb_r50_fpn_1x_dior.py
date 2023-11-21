@@ -27,7 +27,7 @@ model = dict(
         norm_cfg=norm_cfg
     ),
     
-    loss_diff_view=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0), # SSC
+    loss_diff_view=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0),  # SSC loss
     crop_size = (800, 800),
     construct_view = True,   # rot/flp view
     construct_resize = True, # resized view

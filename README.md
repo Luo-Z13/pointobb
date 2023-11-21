@@ -11,7 +11,7 @@ The paper is available at: [TODO](#)
 The weight will be released. [TODO](#)
 
 ### Citation
-Thanks to codebase from MMRotate and P2BNet!
+Special thanks to the codebase contributors of MMRotate and P2BNet!
 ```
 @inproceedings{zhou2022mmrotate,
   title   = {MMRotate: A Rotated Object Detection Benchmark using PyTorch},
