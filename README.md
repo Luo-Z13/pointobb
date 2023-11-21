@@ -1,5 +1,5 @@
-## PointOBB
-The source code of "PointOBB: Learning Oriented Object Detection via Single Point Supervision"
+### PointOBB
+The source code of "PointOBB: Learning Oriented Object Detection via Single Point Supervision".
 
 ### Train/Test
 Please see [`PointOBB\README.md`](PointOBB/README.md).
