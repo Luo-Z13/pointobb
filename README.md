@@ -5,12 +5,23 @@ The source code of "PointOBB: Learning Oriented Object Detection via Single Poin
 Please see [`PointOBB\README.md`](PointOBB/README.md).
 
 ### Paper
-The paper is available at: [TODO](#)
+The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757)
 
 ### weight
 The weight will be released. [TODO](#)
 
 ### Citation
+<!-- If you find this work helpful, please consider to cite:
+```
+@article{luo2023pointobb,
+  title={PointOBB: Learning Oriented Object Detection via Single Point Supervision},
+  author={Luo, Junwei and Yang, Xue and Yu, Yi and Li, Qingyun and Yan, Junchi and Li, Yansheng},
+  journal={arXiv preprint arXiv:2311.14757},
+  year={2023}
+}
+``` -->
+
+
 Special thanks to the codebase contributors of MMRotate and P2BNet!
 ```
 @inproceedings{zhou2022mmrotate,
