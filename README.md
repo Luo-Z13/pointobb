@@ -1,11 +1,12 @@
 ### PointOBB
-The source code of "PointOBB: Learning Oriented Object Detection via Single Point Supervision".
+The source code of **"PointOBB: Learning Oriented Object Detection via Single Point Supervision"**.
+
+### Paper
+The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757)
 
 ### Train/Test
 Please see [`PointOBB\README.md`](PointOBB/README.md).
 
-### Paper
-The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757)
 
 ### weight
 The weight will be released. [TODO](#)
