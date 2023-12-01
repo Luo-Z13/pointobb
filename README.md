@@ -12,7 +12,7 @@ Please see [`PointOBB\README.md`](PointOBB/README.md).
 The weight will be released. [TODO](#)
 
 ### Citation
-<!-- If you find this work helpful, please consider to cite:
+If you find this work helpful, please consider to cite:
 ```
 @article{luo2023pointobb,
   title={PointOBB: Learning Oriented Object Detection via Single Point Supervision},
@@ -20,8 +20,8 @@ The weight will be released. [TODO](#)
   journal={arXiv preprint arXiv:2311.14757},
   year={2023}
 }
-``` -->
-
+```
+-----
 
 Special thanks to the codebase contributors of MMRotate and P2BNet!
 ```
