@@ -1,15 +1,30 @@
-### PointOBB
-The source code of **"PointOBB: Learning Oriented Object Detection via Single Point Supervision"**.
+## PointOBB: Learning Oriented Object Detection via Single Point Supervision
+
+
 
 ### Paper
 The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757)
 
 ### Train/Test
-Please see [`PointOBB\README.md`](PointOBB/README.md).
+Please see [`PointOBB/README.md`](PointOBB/README.md).
 
 
-### weight
-The weight will be released. [TODO](#)
+### Weight
+
+DIOR-R
+
+|         Backbone         |  mAP  | Angle |  Config | Detector | lr schd |                                                                                                                                                                              Download                                                                                                                                                                              |
+| :----------------------: | :---: | :---: | :---: | :-----: | :------: |  :------------------------------------------------------------------------------------------------------------: |
+| ResNet50 (1024,1024,200) | 38.08 | le90  | [pointobb-dior](PointOBB/configs2/pointobb/pointobb_r50_fpn_2x_dior.py)|    Oriented RCNN |   2x/1x  |  [model](https://drive.google.com/file/d/11Z4hl6IhvoWhHIVQFpon18BY-SNwq7tD/view?usp=drive_link) |
+
+
+DOTA-v1.0
+
+|         Backbone         |  mAP  | Angle |  Config | Detector | lr schd |                                                                                                                                                                              Download                                                                                                                                                                              |
+| :----------------------: | :---: | :---: | :---: | :-----: | :------: |  :------------------------------------------------------------------------------------------------------------: |
+| ResNet50 (1024,1024,200) | 33.31 | le90  | [pointobb-dota](PointOBB/configs2/pointobb/pointobb_r50_fpn_2x_dota10.py)|    Oriented RCNN |   2x/1x  |  [model](https://drive.google.com/file/d/1muJHHFkiS6UXUpSnE6xzd5h1QNYhO9Hj/view?usp=drive_link) |
+
+
 
 ### Citation
 If you find this work helpful, please consider to cite:

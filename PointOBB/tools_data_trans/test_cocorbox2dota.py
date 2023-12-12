@@ -129,7 +129,7 @@ def obb2poly_np_le90(obboxes):
 
 
 # read json obb pseudo label
-json_name = 'xxx/work_dir/test_pointobb_r50_fpn_1x_dior/pseudo_obb_result_ann_1.json'
+json_name = 'xxx/work_dir/test_pointobb_r50_fpn_2x_dior/pseudo_obb_result_ann_1.json'
 txt_root = '../Dataset/DIOR/Annotations/pseudo_obb_labelTxt_dior_pointobb/'
 angle_version = 'le90'  # default
 

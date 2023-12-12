@@ -53,11 +53,12 @@ sh train_p_dist.sh
 2. **Inference** (to generate pseudo obb label)
 To inference (generate pseudo obb label), follow these steps:
 ```bash
-cd PointOBB
-# obtain COCO fmt pseudo label
+## obtain COCO format pseudo label
 sh test_p.sh
-# generate DOTA fmt label
-tools_cocorbox2dota.sh
+## convert COCO format to DOTA format 
+sh tools_cocorbox2dota.sh
+## train oriented detectors
+# Please using algorithms in mmrotate (https://github.com/open-mmlab/mmrotate)
 ```
 
 
