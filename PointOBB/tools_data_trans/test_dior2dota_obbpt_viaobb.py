@@ -32,7 +32,6 @@ for label_name in label_name_list:
     with open(labelTxt_out_name, 'w') as txt_file:
 
         for obj in root.iter('object'):
-            # image_mask = np.zeros((800, 800), dtype=np.uint8)
             name = obj.find('name')
             class_name = name.text
             difficult = int(obj.find('difficult').text)
@@ -97,7 +96,6 @@ for label_name in label_name_list:
                 # txt_file.write(f"{x_min} {y_min} {x_max} {y_min} {x_max} {y_max} {x_min} {y_max} {pt_x} {pt_y} {class_name} {difficult}\n")
                 # OBB + pt label
                 txt_file.write(f"{x1} {y1} {x2} {y2} {x3} {y3} {x4} {y4} {pt_x} {pt_y} {class_name} {difficult}\n")
-                
                 # OBB label
                 # txt_file.write(f"{x1} {y1} {x2} {y2} {x3} {y3} {x4} {y4} {class_name} {difficult}\n")
 

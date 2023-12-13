@@ -82,8 +82,6 @@ for label_name in label_name_list:
                 pt_x = (x - cx) * math.cos(a_r) - (y - cy) * math.sin(a_r) + cx
                 pt_y = (x - cx) * math.sin(a_r) + (y - cy) * math.cos(a_r) + cy
 
-                # print(f"random pt (x, y):({pt_x}, {pt_y})")
-                    
                 # # HBB + pt label
                 # txt_file.write(f"{x_min} {y_min} {x_max} {y_min} {x_max} {y_max} {x_min} {y_max} {pt_x} {pt_y} {class_name} {difficult}\n")
                 # OBB + pt label
