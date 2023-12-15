@@ -3,7 +3,7 @@
 
 
 ### Paper
-The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757)
+The paper is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757).
 
 ### Train/Test
 Please see [`PointOBB/README.md`](PointOBB/README.md).
