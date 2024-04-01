@@ -6,6 +6,8 @@ import torch
 import math
 from PIL import Image
 import json
+import argparse
+
 
 def regularize_boxes(boxes,
                      pattern: str = None,
@@ -126,58 +128,53 @@ def obb2poly_np_le90(obboxes):
     polys = get_best_begin_point(polys.reshape(1,-1))
     return polys
 
+def main(json_name, txt_root):
+    if not os.path.exists(txt_root):
+        os.mkdir(txt_root)
 
+    with open(json_name, 'r') as json_file:
+        data = json.load(json_file)
 
-# read json obb pseudo label
-json_name = 'xxx/work_dir/test_pointobb_r50_fpn_2x_dior/pseudo_obb_result_ann_1.json'
-txt_root = '../Dataset/DIOR/Annotations/pseudo_obb_labelTxt_dior_pointobb/'
-angle_version = 'le90'  # default
+    for image_info in data["images"]:
+        file_name = image_info["file_name"]
+        image_id = image_info["id"]
+        name = file_name.replace(".jpg", ".txt")  # DIOR
 
-if not os.path.exists(txt_root):
-    os.mkdir(txt_root)
+        with open(os.path.join(txt_root, name), 'w') as txt_file:
+            for annotation in data["annotations"]:
+                if annotation["image_id"] == image_id:
+                    bbox = annotation["bbox"]
+                    weight = 0
+                    if "ann_weight" in annotation:
+                        weight = annotation["ann_weight"]
 
-with open(json_name, 'r') as json_file:
-    data = json.load(json_file)
+                    if len(bbox) > 4:
+                        cx, cy, w, h, theta = bbox
 
-for image_info in data["images"]:
-    file_name = image_info["file_name"]
-    image_id = image_info["id"]
-    name = file_name.replace(".png", ".txt")  # DOTA
-    # name = file_name.replace(".jpg", ".txt")  # DIOR
+                        # filter
+                        if w < 2 or h < 2:
+                            continue
 
-    with open(os.path.join(txt_root, name), 'w') as txt_file:
-        for annotation in data["annotations"]:
-            if annotation["image_id"] == image_id:
-                bbox = annotation["bbox"]
-                weight = 0
-                if "ann_weight" in annotation:
-                    weight = annotation["ann_weight"]
-                
-                if len(bbox)>4:
-                    cx = bbox[0]
-                    cy = bbox[1]
-                    w = bbox[2]
-                    h = bbox[3]
-                    theta = bbox[4]
+                        obb_ori = torch.tensor((cx, cy, w, h, theta))
+                        obb = regularize_boxes(obb_ori, pattern='le90')
+                        poly = obb2poly_np_le90(obb).reshape(-1)
+                        x0, y0, x1, y1, x2, y2, x3, y3 = poly
+                        category_id = annotation["category_id"]
+                        category_name = next(item["name"] for item in data["categories"] if item["id"] == category_id)
 
-                    # fliter bbox
-                    if w<2 or h<2:
-                        continue
+                        if weight < 0.05:  # difficulty = 1
+                            txt_file.write(f"{x0} {y0} {x1} {y1} {x2} {y2} {x3} {y3} {category_name} 1\n")
+                        else:             # difficulty = 0
+                            txt_file.write(f"{x0} {y0} {x1} {y1} {x2} {y2} {x3} {y3} {category_name} 0\n")
+                    else:
+                        print(f'bbox {bbox} is not an oriented bounding box!')
 
-                    obb_ori = torch.tensor((cx,cy,w,h,theta))
-                    obb = regularize_boxes(obb_ori, pattern=angle_version)
-                    poly = obb2poly_np_le90(obb).reshape(-1)
-                    x0,y0,x1,y1,x2,y2,x3,y3 = poly
-                    category_id = annotation["category_id"]
-                    category_name = next(item["name"] for item in data["categories"] if item["id"] == category_id)
-                    
-                    # write
-                    if weight < 0.05:  # difficulty = 1
-                        txt_file.write(f"{x0} {y0} {x1} {y1} {x2} {y2} {x3} {y3} {category_name} 1\n")
-                    else:             # difficulty = 0
-                        txt_file.write(f"{x0} {y0} {x1} {y1} {x2} {y2} {x3} {y3} {category_name} 0\n")
-                else:
-                    print(f'bbox {bbox} is not a obb!')
+    print('done!')
 
-    print('finish ' + file_name)
-print('done!')
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process JSON file to create TXT files.')
+    parser.add_argument('--json_name', type=str, required=True, help='Path to the JSON file.')
+    parser.add_argument('--txt_root', type=str, required=True, help='Root directory for saving TXT files.')
+
+    args = parser.parse_args()
+    main(args.json_name, args.txt_root)

@@ -9,5 +9,5 @@ tools/dist_train.sh configs2/pointobb/pointobb_r50_fpn_2x_dior.py 2 \
                     --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist/pseudo_obb_result.json'
 
 # tools/dist_train.sh configs2/pointobb/pointobb_r50_fpn_2x_dota10.py 2 \
-#                     --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist\
+#                     --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dota10\
 #                     --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist/pseudo_obb_result.json'

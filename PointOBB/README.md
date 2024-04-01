@@ -47,6 +47,10 @@ To train the model, follow these steps:
 
 ```bash
 cd PointOBB
+# train with single GPU
+python train.py configs2/pointobb/pointobb_r50_fpn_2x_dior.py --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dior --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist/pseudo_obb_result.json'
+
+# train with multiple GPUs
 sh train_p_dist.sh
 ```
 
