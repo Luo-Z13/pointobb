@@ -47,7 +47,7 @@ To train the model, follow these steps:
 
 ```bash
 cd PointOBB
-# train with single GPU
+# train with single GPU, note adjust learning rate or batch size accordingly
 python tools/train.py --config configs2/pointobb/pointobb_r50_fpn_2x_dior.py --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dior --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist/pseudo_obb_result.json'
 
 # train with multiple GPUs
@@ -58,12 +58,12 @@ sh train_p_dist.sh
   
 To inference (generate pseudo obb label), follow these steps:
 ```bash
-## obtain COCO format pseudo label for the training set
+## obtain COCO format pseudo label for the training set (在训练集上推理,从单点生成旋转框的伪标签)
 sh test_p.sh
-## convert COCO format to DOTA format 
+## convert COCO format to DOTA format (将伪标签从COCO格式转换为DOTA格式)
 sh tools_cocorbox2dota.sh
-## train standard oriented object detectors
-# Please using algorithms in mmrotate (https://github.com/open-mmlab/mmrotate)
+## train standard oriented object detectors (使用伪标签训练mmrotate里的标准旋转检测器)
+# Please use algorithms in mmrotate (https://github.com/open-mmlab/mmrotate)
 ```
 
 

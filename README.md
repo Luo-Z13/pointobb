@@ -5,6 +5,9 @@
 ### Paper
 The paper is accepted by CVPR2024 and the preprint is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757).
 
+![Pipeline Image](PointOBB\docs\pipeline.png)
+
+
 ### Train/Test
 Please see [`PointOBB/README.md`](PointOBB/README.md).
 

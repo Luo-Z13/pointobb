@@ -14,7 +14,7 @@ python tools/train.py \
     load_from='xxx/work_dir/epoch_12.pth'
 
 ## way2 
-# Uncomment the Inference section in configs2\pointobb\pointobb_r50_fpn_2x_dior.py and run
+# Note: You need to uncomment the Inference section in configs2\pointobb\pointobb_r50_fpn_2x_dior.py and run the following command: 
 # python tools/train.py\
 #        --config configs2/pointobb/pointobb_r50_fpn_2x_dior.py \
 #        --work-dir xxx/work_dir/test_pointobb_r50_fpn_2x_dior/ \
