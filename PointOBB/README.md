@@ -30,8 +30,8 @@ conda install scikit-image  # or pip install scikit-image
 2. **Generate 'obb+pt' Format:**
 
    - Follow the following scripts to convert the dataset format:
-     - `tools_data_trans/test_dior2dota_obbpt_viaobb.py`
-     - `tools_data_trans/test_dota2dota_obbpt_viaobb.py`
+     - `tools_data_trans/test_dior2dota_obbpt_viaobb.py` (for DIOR-R)
+     - `tools_data_trans/test_dota2dota_obbpt_viaobb.py` (for DOTA)
 
 3. **Generate COCO Format:**
 
@@ -47,10 +47,14 @@ To train the model, follow these steps:
 
 ```bash
 cd PointOBB
-# train with single GPU, note adjust learning rate or batch size accordingly
-python tools/train.py --config configs2/pointobb/pointobb_r50_fpn_2x_dior.py --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dior --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota10_dist/pseudo_obb_result.json'
+## train with single GPU, note adjust learning rate or batch size accordingly
+# DIOR
+python tools/train.py --config configs2/pointobb/pointobb_r50_fpn_2x_dior.py --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dior --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dior_dist/pseudo_obb_result.json'
 
-# train with multiple GPUs
+# DOTA
+# python tools/train.py --config configs2/pointobb/pointobb_r50_fpn_2x_dota10.py --work-dir xxx/work_dir/pointobb_r50_fpn_2x_dota --cfg-options evaluation.save_result_file='xxx/work_dir/pointobb_r50_fpn_2x_dota_dist/pseudo_obb_result.json'
+
+## train with multiple GPUs
 sh train_p_dist.sh
 ```
 
@@ -58,11 +62,14 @@ sh train_p_dist.sh
   
 To inference (generate pseudo obb label), follow these steps:
 ```bash
-## obtain COCO format pseudo label for the training set (在训练集上推理,从单点生成旋转框的伪标签)
+# obtain COCO format pseudo label for the training set 
+# (在训练集上推理,从单点生成旋转框的伪标签)
 sh test_p.sh
-## convert COCO format to DOTA format (将伪标签从COCO格式转换为DOTA格式)
+# convert COCO format to DOTA format 
+# (将伪标签从COCO格式转换为DOTA格式)
 sh tools_cocorbox2dota.sh
-## train standard oriented object detectors (使用伪标签训练mmrotate里的标准旋转检测器)
+# train standard oriented object detectors 
+# (使用伪标签训练mmrotate里的标准旋转检测器)
 # Please use algorithms in mmrotate (https://github.com/open-mmlab/mmrotate)
 ```
 
