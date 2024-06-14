@@ -32,12 +32,14 @@ DOTA-v1.0
 ### Citation
 If you find this work helpful, please consider to cite:
 ```
-@article{luo2023pointobb,
-  title={PointOBB: Learning Oriented Object Detection via Single Point Supervision},
-  author={Luo, Junwei and Yang, Xue and Yu, Yi and Li, Qingyun and Yan, Junchi and Li, Yansheng},
-  journal={arXiv preprint arXiv:2311.14757},
-  year={2023}
+@InProceedings{luo2024pointobb,
+   title     = {PointOBB: Learning Oriented Object Detection via Single Point Supervision},
+   author    = {Luo, Junwei and Yang, Xue and Yu, Yi and Li, Qingyun and Yan, Junchi and Li, Yansheng},
+   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+   pages     = {16730-16740},
+   year      = {2024}
 }
+
 ```
 -----
 
@@ -55,9 +57,9 @@ Special thanks to the codebase contributors of MMRotate and P2BNet!
 
 ```
 @inproceedings{P2BNet,
-  author    = {Pengfei Chen, Xuehui Yu, Xumeng Han, Najmul Hassan, Kai Wang, Jiachen Li, Jian Zhao, Humphrey Shi, Zhenjun Han, and Qixiang Ye},
   title     = {Point-to-Box Network for Accurate Object Detection via Single Point Supervision},
-  booktitle = {ECCV},
+  author    = {Pengfei Chen, Xuehui Yu, Xumeng Han, Najmul Hassan, Kai Wang, Jiachen Li, Jian Zhao, Humphrey Shi, Zhenjun Han, and Qixiang Ye},
+  booktitle = {ECCV}
   year      = {2022},
 }
 ```
