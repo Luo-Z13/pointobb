@@ -39,7 +39,6 @@ If you find this work helpful, please consider to cite:
    pages     = {16730-16740},
    year      = {2024}
 }
-
 ```
 -----
 
@@ -59,7 +58,7 @@ Special thanks to the codebase contributors of MMRotate and P2BNet!
 @inproceedings{P2BNet,
   title     = {Point-to-Box Network for Accurate Object Detection via Single Point Supervision},
   author    = {Pengfei Chen, Xuehui Yu, Xumeng Han, Najmul Hassan, Kai Wang, Jiachen Li, Jian Zhao, Humphrey Shi, Zhenjun Han, and Qixiang Ye},
-  booktitle = {ECCV}
-  year      = {2022},
+  booktitle = {ECCV},
+  year      = {2022}
 }
 ```
