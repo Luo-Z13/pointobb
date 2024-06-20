@@ -545,15 +545,26 @@ class PointOBB(TwoStageDetector):
                       proposals=None,
                       **kwargs):
         
+        # stage1进入策略
         if self.iter_count == self.burn_in_steps1:
             self.roi_head.use_angle_loss = True
             print(f'#####iter_count1 use_angle_loss:{self.iter_count}#####')
             if self.construct_resize:
                 self.construct_resize = False
+        # 用于处理断点重训时，roi_head.use_angle_loss未被继承的问题
+        if self.iter_count > self.burn_in_steps1:
+            self.roi_head.use_angle_loss = True
+            if self.construct_resize:
+                self.construct_resize = False
+        # stage2进入策略
         if self.iter_count == self.burn_in_steps2:
             if self.roi_head.use_angle_loss:
                 self.roi_head.add_angle_pred_begin = True
                 print(f'#####iter_count2 add_angle_pred_begin:{self.iter_count}#####')
+        # 用于处理断点重训时，roi_head.add_angle_pred_begin未被继承的问题
+        if self.iter_count > self.burn_in_steps2:
+            if self.roi_head.use_angle_loss:
+                self.roi_head.add_angle_pred_begin = True
 
         base_proposal_cfg = self.train_cfg.get('base_proposal',
                                                self.test_cfg.rpn)
