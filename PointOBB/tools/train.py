@@ -161,6 +161,13 @@ def main():
     meta['seed'] = args.seed
     meta['exp_name'] = osp.basename(args.config)
 
+
+    # 增加断点重训时的iter继承
+    if args.resume_from is not None:
+      checkpoint = torch.load(args.resume_from)
+      if 'iter' in checkpoint['meta']:
+        cfg.iter_count = checkpoint['meta']['iter']
+        
     model = build_detector(
         cfg.model,
         train_cfg=cfg.get('train_cfg'),
