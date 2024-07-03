@@ -3,7 +3,7 @@
 
 
 ### Paper
-The paper is accepted by CVPR2024 and the preprint is available at: [https://arxiv.org/abs/2311.14757](https://arxiv.org/abs/2311.14757).
+The paper is available at [PointOBB](https://openaccess.thecvf.com/content/CVPR2024/html/Luo_PointOBB_Learning_Oriented_Object_Detection_via_Single_Point_Supervision_CVPR_2024_paper.html). You are also welcome to check out the concurrent work [Point2RBox](https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Point2RBox_Combine_Knowledge_from_Synthetic_Visual_Patterns_for_End-to-end_Oriented_CVPR_2024_paper.html).
 
 ![Pipeline Image](PointOBB/docs/pipeline.png)
 
@@ -40,6 +40,15 @@ If you find this work helpful, please consider to cite:
    year      = {2024}
 }
 ```
+```
+@inproceedings{yu2024point2rbox,
+   title     = {Point2RBox: Combine Knowledge from Synthetic Visual Patterns for End-to-end Oriented Object Detection with Single Point Supervision},
+   author    = {Yi Yu and Xue Yang and Qingyun Li and Feipeng Da and Jifeng Dai and Yu Qiao and Junchi Yan},
+   booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+   year      = {2024}
+}
+```
+
 -----
 
 Special thanks to the codebase contributors of MMRotate and P2BNet!
