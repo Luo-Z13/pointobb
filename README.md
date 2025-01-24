@@ -3,6 +3,8 @@
 
 
 ### Paper
+**- Update:** Two enhanced versions are now available at [PointOBB-v2](https://arxiv.org/pdf/2410.08210) and [PointOBB-v3](https://arxiv.org/pdf/2501.13898).
+
 The paper is available at [PointOBB](https://openaccess.thecvf.com/content/CVPR2024/html/Luo_PointOBB_Learning_Oriented_Object_Detection_via_Single_Point_Supervision_CVPR_2024_paper.html). You are also welcome to check out the concurrent work [Point2RBox](https://openaccess.thecvf.com/content/CVPR2024/html/Yu_Point2RBox_Combine_Knowledge_from_Synthetic_Visual_Patterns_for_End-to-end_Oriented_CVPR_2024_paper.html).
 
 ![Pipeline Image](PointOBB/docs/pipeline.png)
